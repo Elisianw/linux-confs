@@ -231,7 +231,7 @@ mesa lib32-mesa libva-mesa-driver mesa-vdpau
 nvidia-beta-dkms nvidia-utils-beta lib32-nvidia-utils-beta nvidia-settings-beta opencl-nvidia-beta lib32-opencl-nvidia-beta libva-nvidia-driver
 
 # pakgs
-lightdm-slick-greeter light-locker pipewire lib32-pipewire pipewire-audio wireplumber pipewire-jack lib32-pipewire-jack pipewire-pulse pipewire-alsa playerctl pavucontrol bluez bluez-utils blueman network-manager-applet qt5ct kvantum lxappearance dconf-editor python rust go ruby maven gradle zsh wezterm yazi btop xdg-desktop-portal-gtk copyq libreoffice-fresh vlc spotify-launcher obsidian obs-studio steam gamescope prismlauncher reaper thunderbird xfc4-power-manager code nitrogen hsetroot xautolock xsecurelock nemo nemo-fileroller nemo-preview nemo-seahorse nemo-terminal firewalld
+lightdm-slick-greeter light-locker pipewire lib32-pipewire pipewire-audio wireplumber pipewire-jack lib32-pipewire-jack pipewire-pulse pipewire-alsa playerctl pavucontrol bluez bluez-utils blueman network-manager-applet qt5ct kvantum lxappearance dconf-editor python rust go ruby maven gradle zsh wezterm yazi btop xdg-desktop-portal-gtk copyq libreoffice-fresh vlc spotify-launcher obsidian obs-studio steam gamescope prismlauncher reaper thunderbird xfc4-power-manager code nitrogen hsetroot xautolock xsecurelock nemo nemo-fileroller nemo-preview nemo-seahorse nemo-terminal firewalld discord
 
 # AUR
 nemo-compare selectdefaultapplication-fork-git xmousepasteblock qimgv oh-my-zsh-git pcloud-drive thorium-browser retroarch-git jdk8-temurin jdk11-temurin jdk17-temurin jdk21-temurin
