@@ -11,5 +11,5 @@ return {
   color_scheme = "tokyonight_storm",
   color_scheme_dirs = { "~/.config/wezterm" },
 
-  window_background_opacity = 0.9,
+  -- window_background_opacity = 0.8,
 }

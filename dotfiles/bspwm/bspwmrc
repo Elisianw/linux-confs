@@ -24,10 +24,10 @@ bspc config terminal wezterm
 
 #AutoStart applications
 pgrep -x sxhkd > /dev/null || sxhkd &
-#picom &
+picom -b &
 polybar &
 #nitrogen --restore &
-hsetroot -solid '#B450FF' &
+hsetroot -solid '#B478FF' &
 nm-applet &
 blueman-applet &
 xmousepasteblock &
@@ -39,4 +39,6 @@ xfce4-power-manager &
 wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle &
 wpctl set-volume @DEFAULT_AUDIO_SINK@ 20% &
 
+
+XDG_MENU_PREFIX=plasma- kbuildsycoca6 &
 pcloud &

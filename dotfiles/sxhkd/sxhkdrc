@@ -21,7 +21,7 @@ super + w
 
 super + e
 #	wezterm -e yazi
-	nemo
+	dolphin
 
 super + a
 	thorium-browser

@@ -26,7 +26,7 @@ export JAVA_HOME=/usr/lib/jvm/default
 # Prompt
 PROMPT="%F{129}%n(%~)$ %f"
 
-# Theme
+# QT
 export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_STYLE_OVERRIDE=kvantum
 export QT_NO_ANIMATION=1
