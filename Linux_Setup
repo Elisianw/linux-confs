@@ -444,10 +444,7 @@ Section "InputClass"
   Option "ScrollMethodButton" "1"
   Option "ScrollSpeed" "0.5"
 EndSection
-<<<<<<< HEAD
-=======
 
 # No sudo password
 # /etc/sudoers.d/00_eli
 eli ALL=(ALL) NOPASSWD: ALL
->>>>>>> 055d25c (xd)
