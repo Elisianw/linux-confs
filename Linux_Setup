@@ -388,32 +388,6 @@ eport ZDOTDIR=$HOME/.config/zsh
 sudo -i
 ln -s /home/eli/.config/zsh ~/.config/zsh
 
-
-
-
-# xorg
-~/.Xauthority is not a configuration file and only contains temporary authentication tokens, so it should go to $XDG_RUNTIME_DIR or $XDG_CACHE_HOME instead.
-If you are using xinit or startx to launch X11, you can relocate the Xauthority file by pointing $XAUTHORITY elsewhere in your xinitrc, then adding the -auth newpath argument to Xorg in your xserverrc.
-
-#!/bin/sh
-exec /usr/bin/Xorg "$@" -nolisten tcp -auth "$XDG_RUNTIME_DIR/Xauthority"
-GDM stashes the Xauthority files deep inside /var/run/gdm.
-
-~/.Xdefaults is obsolete and should not be used. Its replacement is ~/.Xresources.
-~/.xdvirc is unknown to me.
-~/.xinitrc can be relocated by giving the new path to xinit:
-startx ~/.config/X11/xinitrc
-~/.xlog is unknown to me.
-~/.Xresources is only read by xrdb, and can be relocated by telling xrdb to merge a different file in your .xinitrc or .xprofile:
-xrdb -merge ~/.config/X11/Xresources
-~/.xscreensaver will probably need to stay.
-~/.xsession-errors is only created by the GDM display manager. The latest Git version of GDM puts it in $XDG_RUNTIME_DIR; otherwise it can be removed from within .xprofile. When using xinit, the xsession-errors file isn't created at all.
-
-
-
-
-
-
 -----------------------------
 
 # /etc/X11/xorg.conf.d/10-monitor.conf
@@ -470,3 +444,10 @@ Section "InputClass"
   Option "ScrollMethodButton" "1"
   Option "ScrollSpeed" "0.5"
 EndSection
+<<<<<<< HEAD
+=======
+
+# No sudo password
+# /etc/sudoers.d/00_eli
+eli ALL=(ALL) NOPASSWD: ALL
+>>>>>>> 055d25c (xd)
