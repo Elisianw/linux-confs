@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Loop to check for fullscreen window
+while true; do
+    # Check if any window is fullscreen
+    ## Fullscreen and focused
+    #if hyprctl clients -j | jq -e '.[] | select(.focusHistoryID == 0 and .fullscreen != 0)' > /dev/null; then
+    if hyprctl clients -j | jq -e '.[] | select(.fullscreen != 0)' > /dev/null; then
+        hyprctl dispatch inhibit_idle on
+    else
+        hyprctl dispatch inhibit_idle off
+    fi
+    # Sleep for a short interval before re-checking
+    sleep 5
+done

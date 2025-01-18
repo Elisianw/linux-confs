@@ -1,0 +1,3 @@
+#!/bin/bash
+
+killall picom && systemctl hibernate && xsecurelock -- /usr/bin/xdotool key 0 && picom -b

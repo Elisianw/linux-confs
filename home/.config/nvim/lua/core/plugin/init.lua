@@ -1,0 +1,7 @@
+require("core.plugin.colorscheme")
+require("core.plugin.telescope")
+require("core.plugin.tree")
+require("core.plugin.treesitter")
+require("core.plugin.lsp")
+require("core.plugin.cmp")
+-- require("core.plugin.ibl")

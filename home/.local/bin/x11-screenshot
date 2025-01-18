@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Requires shotgun xclip
+# Get the current time for the filename prefix
+timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
+
+# Define the output directory
+output_dir="$HOME/Pictures/Screenshots"
+
+# Create the output directory if it doesn't exist
+mkdir -p "$output_dir"
+
+# Take the screenshot with shotgun
+shotgun -s "$output_dir/$timestamp.png"
+
+# Copy to clipboard using xclip
+xclip -selection clipboard -t image/png < "$output_dir/$timestamp.png"

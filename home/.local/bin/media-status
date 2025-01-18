@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Check if any media is available
+if ! playerctl status &> /dev/null; then
+    echo "No playback"
+    exit 0
+fi
+
+# Get the player status
+status=$(playerctl status)
+
+# Get the title and artist
+title=$(playerctl metadata title 2>/dev/null || echo "Unknown Title")
+artist=$(playerctl metadata artist 2>/dev/null || echo "Unknown Artist")
+
+# Display based on status
+if [ "$status" == "Playing" ]; then
+    echo " $title - $artist"
+elif [ "$status" == "Paused" ]; then
+    echo " $title - $artist"
+else
+    echo "No playback"
+fi

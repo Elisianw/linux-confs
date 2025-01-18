@@ -1,0 +1,204 @@
+thunar
+thunar-archiver
+xarchiver
+gvfs
+
+# i3
+autotlinig
+
+vconsole
+
+locales
+
+lightdm
+
+/etc/systemd/logind.conf
+    IdleAction=hibernate
+    IdleActionSec=30min
+
+# bitlocker
+dislocker
+
+
+ddcutil
+MODULES=(i2c-dev)
+ddcutil detect --verbose
+sudo ddcutil setvcp 10 50 --display 1
+
+wl-clipboard-x11
+
+polkit qt5-wayland qt6-wayland hyprland-git hyprpaper hypridle hyprlock xdg-desktop-portal-hyprland
+
+clipboard-sync
+cliphist
+
+left= workspaces, idle, tray, all_programs
+center= current_window
+right= media, volume, bt, wifi, cpu, ram, gpu, battery, date
+
+fullscreen bind
+
+disable_composition, tearing, floating
+
+brightnessct
+
+nvidia.NVreg_RegistryDwords=EnableBrightnessControl=1
+
+left= current_window
+center= media, workspaces, all_programs, date
+right= volume, bt, wifi, cpu, ram, gpu, battery, tray, idle
+
+qt5ct qt6ct qt5-wayland qt6-wayland kvantum
+
+kvantum-theme-dracula-git
+dracula-icons-git
+dracula-gtk-theme
+bibata-cursor-theme
+
+lxappearance
+kvantum
+dconf-editor (org > gnome > desktop > interface)
+
+pcmanfm-gtk3
+gvfs
+
+grim
+slurp
+
+noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-noto-emoji-monochrome
+
+xset +fp /usr/share/fonts/TTF
+xset +fp /usr/share/fonts/OTF
+
+nvim lazy.nvim npm
+
+sudo nano /etc/systemd/system/nvidia-undervolt
+sudo systemctl restart nvidia-undervolt
+
+# Nvidia beta wayland
+nvidia-beta-dkms nvidia-utils-beta lib32-nvidia-utils-beta nvidia-settings-beta opencl-nvidia-beta lib32-opencl-nvidia-beta libvdpau lib32-libvdpau libva-nvidia-driver-git xorg-xwayland-git egl-wayland-git
+
+# Nvidia
+nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings opencl-nvidia lib32-opencl-nvidia libvdpau lib32-libvdpau libva-nvidia-driver
+
+# bspwm xcursor
+/usr/share/icons/default/index.theme
+Inherits=cursor_name
+
+bspwmrc
+xsetroot -cursor_name left_ptr
+
+# Wayland
+qt5-wayland qt6-wayland hyprland-git hyprpaper hypridle hyprlock xdg-desktop-portal-hyprland clipboard-sync cliphist hyprpolkitagent-git wofi waybar uwsm xdg-desktop-portal-gtk grim slurp
+
+# Make group xorg packages a dependency
+sudo pacman -D --asdeps $(pacman -Qg xorg | awk '{print $2}')
+
+# Nvidia currently installed
+nvidia-dkms nvidia-utils-beta lib32-nvidia-utils-beta nvidia-settings-beta opencl-nvidia-beta lib32-opencl-nvidia-beta
+
+# gamescope
+gamescope -h 1080 -r 75 -o 20 -b --force-grab-cursor --mangoapp -- %command%
+setcap 'CAP_SYS_NICE=eip' $(which gamescope)
+
+~/.config/codium-flags.conf, ~/.config/obsidian/user-flags.conf, ~/.config/thorium-flags.conf
+--enable-features=UseOzonePlatform
+--ozone-platform=wayland
+--gtk-version=4
+
+/etc/spotify-launcher.conf
+extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland", "--gtk-version=4"]
+
+# raw input buffer x11
+Section "InputClass"
+  Identifier "libinput pointer catchall"
+  MatchIsPointer "yes"
+  MatchDevicePath "/dev/input/event*"
+  Driver "libinput"
+  Option "AccelProfile" "flat"
+  Option "ScrollMethod" "button"
+  Option "ScrollMethodButton" "1"
+  #Option "ScrollSpeed" "0.5"
+EndSection
+
+# bspwm run when desktop is focused / lose focuse
+#!/bin/bash
+
+DESKTOP_ID="0x00400009" # The ID of desktop, check with bspc subscribe desktop_focus focussing adn unfocussing a desktop
+last_state="unfocused"
+
+bspc subscribe desktop_focus | while read -r _ _ current_desktop_id; do
+    if [ "$current_desktop_id" == "$DESKTOP_ID" ]; then
+        if [ "$last_state" != "focused" ]; then
+            echo "hello" # Desktop is focused
+            last_state="focused"
+        fi
+    else
+        if [ "$last_state" != "unfocused" ]; then
+            echo "goodbye" # Desktop loses focus
+            last_state="unfocused"
+        fi
+    fi
+done
+
+# Enabling brightness control
+# Add to kernel parameters:
+nvidia.NVreg_RegistryDwords=EnableBrightnessControl=1
+
+#Alternatively, add the following under section Device:
+Option "RegistryDwords" "EnableBrightnessControl=1"
+
+# prevent devices from waking hibernation
+# to see devices
+grep . /sys/bus/usb/devices/*/power/wakeup
+# to disable all
+echo disabled > /sys/bus/usb/devices/*/power/wakeup
+# service that runs on boot and wakeup
+sudo nano /etc/systemd/system/disable-usb-wakeup.service
+# add
+[Unit]
+Description=Disable USB devices from waking up the system
+After=multi-user.target suspend.target hibernate.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c 'for device in /sys/bus/usb/devices/*/power/wakeup; do echo disabled > $device; done'
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target
+# start service
+sudo systemctl enable disable-usb-wakeup
+
+pkill -USR1 picom
+
+xidlehook --not-when-audio --not-when-fullscreen --timer 180 "ddcutil setvcp 10 1" "ddcutil setvcp 10 100" --timer 600 "xset dpms force off" "xset dpms force on && ddcutil setvcp 10 100" --timer 1800 "xset dpms force on && ddcutil setvcp 10 100 && killall picom && systemctl hibernate && xsecurelock -- /usr/bin/xdotool key 0" "picom -b" &
+
+
+# clean reset remove delete dconf gnome settings
+dconf reset -f /
+
+# dconf
+hidden
+theme
+color
+font
+sound
+sort
+ 
+# enable brightness control in cmdline kernel parameter
+acpi_backlight=video
+acpi_backlight=vendor
+acpi_backlight=native
+
+options rd.luks.name=545bfbb3-b206-43ee-ae7d-89e39e381c81=cryptlvm root=/dev/vg/root rw resume=/dev/vg/root resume_offset=3598336 nvidia-drm.modeset=1 nvidia-drm.fbdev=1 acpi_backlight=video nvidia.NVreg_RegistryDwords=EnableBrightnessControl=1 quiet loglevel=3
+
+# wey 
+yay -S --noconfirm hyprland-git hyprpaper hypridle hyprlock clipboard-sync cliphist hyprpolkitagent-git wofi waybar uwsm xdg-desktop-portal-gtk grim slurp
+
+# force dark theme gtk
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
+# force a theme
+gsettings get org.gnome.desktop.interface gtk-theme # to view themes
+gsettings get org.gnome.desktop.interface gtk-theme "Theme"

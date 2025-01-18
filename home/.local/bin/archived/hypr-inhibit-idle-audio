@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Loop to check for active audio streams
+while true; do
+    # Check if any audio stream is active
+    if wpctl status | grep -q 'playback_.*\[active\]'; then
+        hyprctl dispatch inhibit_idle on
+    else
+        hyprctl dispatch inhibit_idle off
+    fi
+    # Sleep for a short interval before re-checking
+    sleep 5
+done

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+DESKTOP_ID="0x00400009"
+last_state="unfocused"
+
+bspc subscribe desktop_focus | while read -r _ _ current_desktop_id; do
+    if [ "$current_desktop_id" == "$DESKTOP_ID" ]; then
+        if [ "$last_state" != "focused" ]; then
+            polybar-msg cmd hide
+            bspc config top_padding -9
+            last_state="focused"
+        fi
+    else
+        if [ "$last_state" != "unfocused" ]; then
+            polybar-msg cmd show
+            bspc config top_padding 18
+            last_state="unfocused"
+        fi
+    fi
+done

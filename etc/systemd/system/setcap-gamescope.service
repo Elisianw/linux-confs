@@ -1,0 +1,11 @@
+[Unit]
+Description=Set capabilities for Gamescope
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c "setcap 'cap_sys_nice=eip' /usr/bin/gamescope"
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

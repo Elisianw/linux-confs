@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Update packages
+yay -Syyu --noconfirm
+
+# Remove cached downloaded packages
+yay -Scc --noconfirm
+
+# Remove orphaned packages and associated files
+yay -Qtdq | yay -Rns - --noconfirm

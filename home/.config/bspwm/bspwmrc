@@ -1,0 +1,55 @@
+#!/bin/sh
+
+# Styling
+bspc config border_width 3
+bspc config window_gap 8
+bspc config top_padding -2
+bspc config bottom_padding -2
+bspc config left_padding -2
+bspc config right_padding -2
+bspc config focused_border_color '#bd93f9'
+bspc config normal_border_color '#6272a4'
+# Autotiling
+bspc config split_ratio 0.52
+bspc config borderless_monocl true
+bspc config gapless_monocle true
+#bspc config pointer_motion_interval 40
+# Focus
+bspc config focus_follows_pointer true
+bspc config pointer_follows_focus true
+bspc config pointer_follows_monitor true
+bspc config remove_disabled_monitors true
+# Other
+bspc monitor -d 1 2 3 4 5 6
+bspc config terminal kitty
+# Rules
+#bspc rule -a Obsidian desktop='^1' follow=on --one-shot
+bspc rule -a obsidian desktop='^1' --one-shot
+bspc rule -a Thorium-browser desktop='^2' --one-shot
+#bspc rule -a Spotify desktop='^3' --one-shot
+# gamescope
+#bspc rule -a gamescope border=off  desktop='^6'
+#bspc config -d 6 window_gap 0
+
+#AutoStart applications
+pgrep -x sxhkd > /dev/null || sxhkd &
+xsetroot -cursor_name left_ptr &
+picom -b &
+polybar &
+feh --bg-scale ~/Pictures/Wallpaper/background.jpg &
+clipcatd &
+#xmousepasteblock &
+audio-startup &
+#bspwm-desktop6 &
+nm-applet &
+blueman-applet &
+source ~/.config/bspwm/xidlehook
+source ~/.config/bspwm/startup-programs
+
+#bspc rule -a gamescope state=floating desktop=^6
+#hsetroot -solid '#B478FF' &
+#XDG_MENU_PREFIX=plasma- kbuildsycoca6 &
+#pcloud &
+#pgrep light-locker || light-locker &
+#xautolock -time 10 -locker "light-locker-command -l" &
+#xfce4-power-manager &

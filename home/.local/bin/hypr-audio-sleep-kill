@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# File to track the script's PID
+PID_FILE="/tmp/hypr_audio_sleep.pid"
+
+# Extract PID
+EXISTING_PID=$(cat "$PID_FILE")
+
+# Kill the process
+kill "$existing_pid"
+
+# Remove tmp file
+rm -f "$PID_FILE"

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Start xsecurelock in the background
+xsecurelock &
+
+# Get the PID of xsecurelock to monitor it
+LOCK_PID=$!
+
+# Turn off the screen immediately
+#xset dpms force off
+
+# Start xidlehook to monitor screen state
+xidlehook \
+    --timer 60 \
+    "xset dpms force off" \
+    "" &
+
+# Get the PID of xidlehook to kill it later
+XIDLEHOOK_PID=$!
+
+# Wait for xsecurelock to close
+wait $LOCK_PID
+
+# Clean up xidlehook
+kill $XIDLEHOOK_PID

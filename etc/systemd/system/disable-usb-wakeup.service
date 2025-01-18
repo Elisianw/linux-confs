@@ -1,0 +1,11 @@
+[Unit]
+Description=Disable USB devices from waking up the system
+After=multi-user.target suspend.target hibernate.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c 'for device in /sys/bus/usb/devices/*/power/wakeup; do echo disabled > $device; done'
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target

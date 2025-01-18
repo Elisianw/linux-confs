@@ -1,0 +1,18 @@
+xset dpms 0 0 0 &
+xset s off &
+
+xidlehook \
+    --not-when-fullscreen \
+    --timer 120 \
+        "ddcutil setvcp 10 1" \
+        "ddcutil setvcp 10 100" \
+    --timer 300 \
+        "ddcutil setvcp 10 100 && xset dpms force off" \
+        "" \
+    --not-when-audio \
+    --timer 600 \
+        "xsecurelock" \
+        "" \
+&
+
+#xidlehook --not-when-audio --not-when-fullscreen --timer 180 "ddcutil setvcp 10 1" "ddcutil setvcp 10 100" --timer 600 "ddcutil setvcp 10 100 && sleep 1 && xset dpms force off" "xset dpms force on" --timer 1800 "xset dpms force on && ddcutil setvcp 10 100 && sleep 1 && killall picom && systemctl hibernate && xsecurelock -- /usr/bin/xdotool key 0" "picom -b" &
