@@ -1,0 +1,179 @@
+###############
+### General ###
+###############
+7zip
+alsa-utils
+base
+base-devel
+bibata-cursor-theme
+blueman
+bluez
+bluez-utils
+dconf-editor
+ddcutil # For external monitors brightness control
+dracula-gtk-theme
+dracula-icons-git
+efibootmgr
+firewalld
+gamemode
+git
+gradle
+kvantum
+kvantum-theme-dracula-git
+lib32-pipewire
+lib32-pipewire-jack
+linux-firmware
+linux-zen
+linux-zen-headers
+lsp-plugins
+lvm2
+man-db
+maven
+nano
+neovim
+network-manager-applet
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+npm
+ntfs-3g
+pavucontrol
+pipewire
+pipewire-alsa
+pipewire-audio
+pipewire-jack
+pipewire-pulse
+playerctl
+python
+python-pip
+qt5ct
+qt6ct
+ripgrep
+sbctl
+selectdefaultapplication-fork-git
+terminus-font
+ttf-font-awesome
+ttf-jetbrains-mono
+wine
+wine-mono
+winetricks
+xarchiver
+zram-generator
+zsh
+zsh-completions
+
+yay # From the repository
+
+################
+### Hardware ###
+################
+
+### Intel ###
+### CPU
+intel-ucode
+
+### GPU
+mesa
+lib32-mesa
+vulkan-intel
+lib32-vulkan-intel
+
+### AMD ###
+
+### CPU
+amd-ucode
+
+### GPU
+mesa
+lib32-mesa
+# Either
+vulkan-radeon
+lib32-vulkan-radeon
+# or
+admvlk
+lib32-amdvlk
+
+### Nvidia ###
+nvidia-open-dkms
+nvidia-utils
+lib32-nvidia-utils
+nvidia-settings
+libvdpau
+lib32-libvdpau
+
+nvidia-vaapi-driver # ?
+
+nvtop # For monitoring
+python-nvidia-ml-py # For undervolting
+
+################
+### Programs ###
+################
+easyeffects
+filen-desktop-bin
+ghostty
+gamescope
+gimp
+htop
+yazi
+yt-dlp
+kdenlive
+kitty
+krita
+libreoffice-fresh
+lutris
+mangohud
+neovide
+motrix-bin
+obs-studio
+obsidian
+protontricks
+qbittorrent
+qimgv
+reaper
+retroarch
+sklauncher-bin
+steam
+thorium-browser-bin
+thunderbird
+vlc
+wezterm
+
+###############
+### Wayland ###
+###############
+cliphist
+grim
+hypridle
+hyprland
+hyprlock
+hyprpaper
+hyprpolkitagent
+rofi-wayland
+slurp
+uwsm
+waybar
+xdg-desktop-portal-gtk
+xdg-desktop-portal-hyprland
+
+xclip # For xwayland
+
+###########
+### X11 ###
+###########
+bspwm
+clipcat
+feh
+picom-git
+rofi
+shotgun
+slop
+polybar
+sxhkd
+xclip
+xdotool
+xmousepasteblock
+xidlehook
+xorg-xinit
+xorg-xsetroot
+xsecurelock
