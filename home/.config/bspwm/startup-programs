@@ -2,8 +2,8 @@
 #steam -silent &
 #motrix &
 
-obsidian &
-thorium-browser --wm-window-animations-disabled --animation-duration-scale=0 &
+#obsidian &
+#thorium-browser --wm-window-animations-disabled --animation-duration-scale=0 &
 #spotify-launcher &
 
-xsecurelock -- /usr/bin/xdotool key 0
+#xsecurelock -- /usr/bin/xdotool key 0

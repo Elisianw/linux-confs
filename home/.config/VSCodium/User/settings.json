@@ -1,0 +1,23 @@
+{
+    "security.workspace.trust.banner": "never",
+    "workbench.startupEditor": "none",
+    "security.workspace.trust.startupPrompt": "never",
+    "security.workspace.trust.untrustedFiles": "newWindow",
+    "explorer.autoReveal": false,
+    "zenMode.fullScreen": false,
+    "zenMode.hideLineNumbers": false,
+    "zenMode.centerLayout": false,
+    "latex-workshop.view.autoFocus.enabled": false,
+    "workbench.activityBar.location": "hidden",
+    "editor.wordWrap": "on",
+    "git.enableSmartCommit": true,
+    "window.titleBarStyle": "custom",
+    "editor.minimap.enabled": false,
+    "security.workspace.trust.enabled": false,
+    "workbench.colorTheme": "Dracula Theme",
+    "explorer.confirmDelete": false,
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontSize": 14,
+    "terminal.integrated.fontSize": 14
+}

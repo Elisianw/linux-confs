@@ -11,7 +11,7 @@ xidlehook \
         "" \
     --not-when-audio \
     --timer 600 \
-        "xsecurelock" \
+        "xsecurelock & systemctl suspend" \
         "" \
 &
 

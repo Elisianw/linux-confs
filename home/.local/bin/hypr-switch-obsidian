@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if ! hyprctl clients | grep "initialClass: obsidian"; then
+    uwsm app -- obsidian
+else
+    hyprctl dispatch focuswindow class:obsidian
+fi

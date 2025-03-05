@@ -6,4 +6,4 @@ sleep 2 &&
 wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1
 
 # Set volume
-wpctl set-volume @DEFAULT_AUDIO_SINK@ 24%
+wpctl set-volume @DEFAULT_AUDIO_SINK@ 26%

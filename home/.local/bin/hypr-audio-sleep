@@ -9,7 +9,7 @@ echo $$ > "$PID_FILE"
 # Check audio status and sleep if no audio is playing
 while true; do
     if wpctl status | grep -q 'playback_.*\[active\]'; then
-        sleep 15
+        sleep 60
     else
         systemctl suspend
         break

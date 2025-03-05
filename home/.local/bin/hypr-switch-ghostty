@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if ! hyprctl clients | grep "initialClass: com.mitchellh.ghostty"; then
+    uwsm app -- ghostty
+else
+    hyprctl dispatch focuswindow class:com.mitchellh.ghostty
+fi

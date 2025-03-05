@@ -4,8 +4,8 @@
 volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)}')
 
 # Compare the volume integer
-if [ "$volume" -le 24 ]; then
-  wpctl set-volume @DEFAULT_AUDIO_SINK@ 48%
+if [ "$volume" -le 26 ]; then
+  wpctl set-volume @DEFAULT_AUDIO_SINK@ 50%
 else
-  wpctl set-volume @DEFAULT_AUDIO_SINK@ 24%
+  wpctl set-volume @DEFAULT_AUDIO_SINK@ 26%
 fi

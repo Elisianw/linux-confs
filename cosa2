@@ -106,8 +106,14 @@ setcap 'CAP_SYS_NICE=eip' $(which gamescope)
 --ozone-platform=wayland
 --gtk-version=4
 
+--enable-features=AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,VaapiOnNvidiaGPUs,VaapiIgnoreDriverChecks,MiddleClickAutoscroll
+#--enable-features=UseOzonePlatform,AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,VaapiOnNvidiaGPUs,VaapiIgnoreDriverChecks,MiddleClickAutoscroll
+#--ozone-platform=wayland
+--gtk-version=4
+
 /etc/spotify-launcher.conf
-extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland", "--gtk-version=4"]
+#extra_arguments = ["--enable-features=UseOzonePlatform,AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,VaapiOnNvidiaGPUs,VaapiIgnoreDriverChecks,MiddleClickAutoscroll", "--ozone-platform=wayland"]
+extra_arguments = ["--enable-features=AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,VaapiOnNvidiaGPUs,VaapiIgnoreDriverChecks,MiddleClickAutoscroll"]
 
 # raw input buffer x11
 Section "InputClass"
@@ -202,3 +208,8 @@ gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 # force a theme
 gsettings get org.gnome.desktop.interface gtk-theme # to view themes
 gsettings get org.gnome.desktop.interface gtk-theme "Theme"
+
+# sateam env
+gamemoderun gamescope -h 1080 -r 75 -o 20 -f --adaptive-sync --force-grab-cursor -- env MANGOHUD=1 %command%
+
+gamemoderun mangohud %command%

@@ -34,7 +34,7 @@ bspc rule -a Thorium-browser desktop='^2' --one-shot
 #AutoStart applications
 pgrep -x sxhkd > /dev/null || sxhkd &
 xsetroot -cursor_name left_ptr &
-picom -b &
+#picom -b &
 polybar &
 feh --bg-scale ~/Pictures/Wallpaper/background.jpg &
 clipcatd &
@@ -43,8 +43,8 @@ audio-startup &
 #bspwm-desktop6 &
 nm-applet &
 blueman-applet &
-source ~/.config/bspwm/xidlehook
-source ~/.config/bspwm/startup-programs
+#source ~/.config/bspwm/xidlehook
+#source ~/.config/bspwm/startup-programs
 
 #bspc rule -a gamescope state=floating desktop=^6
 #hsetroot -solid '#B478FF' &

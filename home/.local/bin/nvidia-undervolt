@@ -7,19 +7,19 @@ nvmlInit()
 myGPU = nvmlDeviceGetHandleByIndex(0)
 
 # Min and max freq, use nvidia-smi -q -d SUPPORTED_CLOCKS to see
-nvmlDeviceSetGpuLockedClocks(myGPU, 0, 1965)
+nvmlDeviceSetGpuLockedClocks(myGPU, 0, 1920)
 
 # The GPU frequency offset value should replace the "80" in the line below.
-nvmlDeviceSetGpcClkVfOffset(myGPU, 150)
+nvmlDeviceSetGpcClkVfOffset(myGPU, 120)
 
 # The Mem frequency Offset should be **multiplied by 2** to replace the "2500" below
 # for example, an offset of 500 in GWE means inserting a value of 1000 in the next line
-#nvmlDeviceSetMemClkVfOffset(myGPU, 1500)
+#nvmlDeviceSetMemClkVfOffset(myGPU, 2000)
 
 # The power limit should be set below in mW - 216W becomes 216000, etc. May not work for laptops. Remove the below line if you don't want to adjust power limits.
-#nvmlDeviceSetPowerManagementLimit(myGPU, 310000)
+#nvmlDeviceSetPowerManagementLimit(myGPU, 250000)
 
 # 720 - 1920 - 165
 # 405 - 1995 - 165
 # 405 - 1995 - 150 - 1500
-# 405 - 1965 - 150 - 
+# 0 - 1965 - 150 -
